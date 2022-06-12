@@ -76,7 +76,7 @@ fn main() -> anyhow::Result<()> {
                     }
                     nrf_chip.set_retries((5, 15)).expect("retries");
 
-                    nrf_chip.open_reading_pipe(DataPipe::DP1, b"MainN").expect("open_reading_pipe");
+                    nrf_chip.open_reading_pipe(DataPipe::DP1, b"Node1").expect("open_reading_pipe");
                     nrf_chip.reset_status().expect("reset");
                     nrf_chip.start_listening().expect("listening");
 
@@ -86,7 +86,7 @@ fn main() -> anyhow::Result<()> {
                         if !nrfirq::isr_wait() {
                             continue;
                         }
-                        if let Ok(Some(pipe)) = nrf_chip.data_available_on_pipe() {
+                        while let Ok(Some(pipe)) = nrf_chip.data_available_on_pipe() {
                             match pipe {
                                 DataPipe::DP1 => {
                                     let len = nrf_chip.read(&mut buf).expect("read");
