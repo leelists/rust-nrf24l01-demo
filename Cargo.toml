@@ -1,8 +1,8 @@
 [package]
 name = "rust-nrf24l01-demo"
-version = "0.0.2"
-authors = ["leelists"]
-edition = "2018"
+version = "0.0.3"
+authors = ["MariaBella <lists@jave.fr>"]
+edition = "2021"
 categories = ["embedded", "hardware-support"]
 keywords = ["embedded", "svc", "idf", "esp-idf", "esp32"]
 description = "A demo crate using esp32 and nrf20l01"
@@ -34,7 +34,7 @@ embedded-svc = "0.21.3"
 embedded-hal = "0.2.7"
 
 [dependencies.nrf24-rs]
-path = "src/nrf24-rs"
+git = "https://github.com/leelists/RF24-rs"
 features = ["micro-fmt"]
 
 [build-dependencies]

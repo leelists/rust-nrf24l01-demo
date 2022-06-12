@@ -34,6 +34,7 @@ fn main() -> anyhow::Result<()> {
     let peripherals = Peripherals::take().unwrap();
 
     let pins = peripherals.pins;
+
     let nrf_config = NrfConfig::default()
         .channel(98)
         .addr_width(5)
@@ -41,8 +42,6 @@ fn main() -> anyhow::Result<()> {
         .data_rate(DataRate::R250Kbps)
         .pa_level(PALevel::Max)
         .crc_encoding_scheme(Some(EncodingScheme::R2Bytes));
-
-    println!("{:?}", nrf_config);
 
     let spi = peripherals.spi2;
 
