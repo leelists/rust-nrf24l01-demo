@@ -261,16 +261,16 @@ impl uDebug for PayloadSize {
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum DataRate {
     /// 1 Mbps
-    R1Mbps = 0b0000_0000,
+    R1Mbps   = 0b0000_0000,
     /// 2 Mbps
-    R2Mbps = 0b0000_0001,
+    R2Mbps   = 0b0000_0100,
     /// 250 Kpbs
-    R250Kbps = 0b0000_0010,
+    R250Kbps = 0b0010_0000,
 }
 
 impl DataRate {
     pub(crate) fn bitmask() -> u8 {
-        0b1111_1110
+        0b0010_0100
     }
     pub(crate) fn rate(&self) -> u8 {
         *self as u8
@@ -286,9 +286,9 @@ impl Default for DataRate {
 impl From<u8> for DataRate {
     fn from(t: u8) -> Self {
         match t & Self::bitmask() {
-            0 => Self::R1Mbps,
-            1 => Self::R2Mbps,
-            2 => Self::R250Kbps,
+            0b0000_0000 => Self::R1Mbps,
+            0b0000_0100 => Self::R2Mbps,
+            0b0010_0000 => Self::R250Kbps,
             _ => unreachable!(),
         }
     }

@@ -3,16 +3,17 @@
 
 ### Pinout
 
-|         |        |
-|---------|--------|
-| GPIO39  | GPIO36 |
-| GPIO35  | GPIO34 |  
-| GPIO32  | GPIO16 | 
-| GPIO12  | GPIO33 |
-| GPIO15  | GPIO4  | 
-| GPIO14  | GPIO2  | 
-| GND     | 3V3    | 
-| GND     | 3V3    | 
+|       |        | NRF24L01 |      |
+|-------|--------|----------|------|
+| GPIO39 | GPIO36 | NC       | NC   |
+| GPIO35 | GPIO34 | NC       | NC   | 
+| GPIO32 | GPIO16 | NC       | NC   |
+| GPIO12 | GPIO33 | MISO     | IRQ  |
+| GPIO15 | GPIO4  | SCK      | MOSI |
+| GPIO14 | GPIO2  | CE       | CS  |
+| GND   | 3V3    | GND      | 3V3  |
+| GND   | 3V3    | E        | E    |
+
 
 # Wiring
 

@@ -1,6 +1,6 @@
 [package]
 name = "rust-nrf24l01-demo"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["leelists"]
 edition = "2018"
 categories = ["embedded", "hardware-support"]
@@ -26,17 +26,16 @@ experimental = ["esp-idf-svc/experimental", "esp-idf-hal/experimental", "embedde
 anyhow = {version = "1", features = ["backtrace"]}
 log = "0.4"
 url = "2"
-esp-idf-sys = { version = "0.31.5", features = ["binstart"] }
-esp-idf-svc = "0.41.3"
-#esp-idf-hal = "0.37.4"
-esp-idf-hal = "0.36.0"
-embedded-svc = "0.21.2"
+esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
+esp-idf-svc = "0.41.4"
+#esp-idf-hal = { git = "https://github.com/Dominaezzz/esp-idf-hal/", branch = "fix_spi" }
+esp-idf-hal = "0.37.4"
+embedded-svc = "0.21.3"
 embedded-hal = "0.2.7"
-nrf24-rs = "0.1.1"
 
-#[dependencies.nrf24-rs]
-#path = "src/nrf24-rs"
-#features = ["micro-fmt"]
+[dependencies.nrf24-rs]
+path = "src/nrf24-rs"
+features = ["micro-fmt"]
 
 [build-dependencies]
 embuild = "0.29"
