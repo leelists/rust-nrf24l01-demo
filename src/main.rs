@@ -77,7 +77,7 @@ fn main() -> anyhow::Result<()> {
                     }
                     nrf_chip.set_retries((5, 15)).expect("retries");
 
-                    nrf_chip.open_reading_pipe(DataPipe::DP1, b"MainN").expect("open_reading_pipe");
+                    nrf_chip.open_reading_pipe(DataPipe::DP1, b"Node1").expect("open_reading_pipe");
                     nrf_chip.reset_status().expect("reset");
                     nrf_chip.start_listening().expect("listening");
 
