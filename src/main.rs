@@ -87,7 +87,7 @@ fn main() -> anyhow::Result<()> {
                         if !nrfirq::isr_wait() {
                             continue;
                         }
-                        if let Ok(Some(pipe)) = nrf_chip.data_available_on_pipe() {
+                        while let Ok(Some(pipe)) = nrf_chip.data_available_on_pipe() {
                             match pipe {
                                 DataPipe::DP1 => {
                                     let len = nrf_chip.read(&mut buf).expect("read");
